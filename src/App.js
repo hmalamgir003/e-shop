@@ -1,14 +1,27 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import HomePage from "./homepage.component";
+import HomePage from "./pages/Homepage/homepage.component";
 
-function App() {
+const Hats = props => {
+  console.log(props);
+
   return (
-    <div className="App">
-      <h1>React App </h1>
-      <HomePage />
+    <div>
+      <h1>Hats</h1>
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/hats" component={Hats} />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;
